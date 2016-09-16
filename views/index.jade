@@ -1,0 +1,32 @@
+extends layout
+
+block content
+	.container
+		h1= title
+		table(class='table')
+			thead
+				th Name
+				th Email
+				th Numbers
+				th Action
+			tbody
+				tr
+					td 
+						input(class='form-control' ng-model='contact.name')
+					td 
+						input(class='form-control' ng-model='contact.email')
+					td 
+						input(class='form-control' ng-model='contact.number')
+					td 
+						button(class='btn btn-primary' ng-click='addContact()') Add Contact
+					td 
+						button(class='btn btn-info' ng-click='update()') Update
+						
+				tr(ng-repeat='contact in contactlist')
+					td {{contact.name}}
+					td {{contact.email}}
+					td {{contact.number}}
+					td 
+						button(class='btn btn-danger' ng-click='remove(contact._id)') Remove 
+					td 
+						button(class='btn btn-warning' ng-click='edit(contact._id)') Edit 
